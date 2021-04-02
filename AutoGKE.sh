@@ -25,7 +25,6 @@ gcloud config set project $PROJECT_ID
 
 gcloud config set compute/zone $ZONE
 
-
 gcloud container clusters create $CLUSTERNAME \
   --num-nodes=$NBNODES \
   --enable-autoscaling \
@@ -36,7 +35,6 @@ gcloud container clusters create $CLUSTERNAME \
 gcloud compute instances list
 
 }
-
 
 GCR()
 {
@@ -73,14 +71,11 @@ i=1
     
     docker push gcr.io/${PROJECT_ID}/$IMAGENAME:$TAG
     kubectl create deployment $DEPLOYNAME --image=gcr.io/${PROJECT_ID}/$IMAGENAME:$TAG
-    kubectl get pods
-     
+    kubectl get pods     
 
   done
 }
    
-
-
 EXPOSE ()
 {
 ##test pull from GCR 
@@ -90,12 +85,11 @@ EXPOSE ()
 
   read -p "entrée le nom de votre deployment à exposé : " CONTAINERPHARE
 
-
-
 #L'indicateur --port spécifie le numéro de port configuré sur l'équilibreur de charge 
 #L'indicateur --target-port indique le numéro de port utilisé par le pod 
   kubectl expose deployment $CONTAINERPHARE --type=LoadBalancer --port $LBPORT --target-port $PODPORT
 }
+
 GKE
 GCR
 #EXPOSE
