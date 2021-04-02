@@ -8,9 +8,9 @@ sudo chmod 755 AutoGKE.sh
 ./AutoGKE.sh
 ```
 
-# Follow the instructions of the terminal
+## Follow the instructions of the terminal
 
-# The Script deploy stack GoogleKubernesEngine with Google Container Registry
+## The Script deploy stack GoogleKubernesEngine with Google Container Registry
 
 
 
